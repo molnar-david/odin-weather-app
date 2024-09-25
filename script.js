@@ -17,13 +17,14 @@ function processWeatherData(weatherData) {
     return result;
 }
 
-async function getWeatherData(location) {
+async function getWeatherData(loc) {
     try {
         const url = 'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/'
-                    + location + '?key=LC8JRPNYJGVVGR4JKMWPVHV5B';
+                    + loc + '?key=LC8JRPNYJGVVGR4JKMWPVHV5B';
         const response = await fetch(url, {mode: 'cors'});
         if (!response.ok) {
-            throw('Error ' + response.meta.status + ': ' + response.meta.msg);
+            console.log(response);
+            throw('Error ' + response.status);
         }
         const weatherData = await response.json();
 
@@ -33,4 +34,9 @@ async function getWeatherData(location) {
     }
 }
 
-getWeatherData('London').then((data) => console.log(data));
+const loc = document.getElementById('location');
+const searchBtn = document.getElementById('search-btn');
+searchBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+    getWeatherData(loc.value).then((data) => console.log(data));
+});
