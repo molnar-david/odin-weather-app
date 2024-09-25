@@ -27,11 +27,10 @@ async function getWeatherData(location) {
         }
         const weatherData = await response.json();
 
-        console.log(processWeatherData(weatherData));
-        // console.log(weatherData);
+        return processWeatherData(weatherData);
     } catch (err) {
         console.log(err);
     }
 }
 
-getWeatherData('London');
+getWeatherData('London').then((data) => console.log(data));
