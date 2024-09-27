@@ -34,7 +34,7 @@ async function getWeatherData(loc) {
     }
 }
 
-const loc = document.getElementById('location');
+const loc = document.getElementById('search-box');
 const searchBtn = document.getElementById('search-btn');
 searchBtn.addEventListener('click', (event) => {
     event.preventDefault();
