@@ -16,6 +16,11 @@
     color: white;
 }
 
+body {
+    margin: 0;
+    background-color: skyblue;
+}
+
 h1 {
     font-family: "Roboto", sans-serif;
     font-weight: bold;
@@ -23,9 +28,23 @@ h1 {
     padding-right: 8px;
 }
 
-body {
-    margin: 0;
-    background-color: skyblue;
+form {
+    gap: 8px;
+    align-items: center;
+}
+
+.unit-span:first-of-type {
+    margin-left: auto;
+}
+
+.unit-span {
+    font-size: 1.1rem;
+    opacity: 0.8;
+}
+
+.unit-span.active {
+    font-weight: bold;
+    opacity: 1;
 }
 
 #site-container {
@@ -62,6 +81,7 @@ img {
     background-color: lightseagreen;
     margin-left: 0;
     padding-left: 12px;
+    padding-right: 12px;
 }
 
 input,
@@ -70,6 +90,10 @@ button {
     border: 1px solid lightslategrey;
     border-radius: 8px;
     font-size: 1.1rem;
+}
+
+#search-btn {
+    margin-left: -4px;
 }
 
 input {
@@ -173,3 +197,59 @@ input {
 .long-forecast-tempmin {
     color: blue;
 }
+
+/* Switch taken from www.w3schools.com */
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+  
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+  
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+  
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+  
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+  
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+  
+.slider.round:before {
+    border-radius: 50%;
+} 

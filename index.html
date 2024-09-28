@@ -11,9 +11,15 @@
     <div id="site-container" class="grid">
         <div id="header" class="grid">
             <h1>Weather App</h1>
-            <form action="#">
+            <form action="#" class="flex">
                 <input type="text" id="search-box" name="search-box" placeholder="Enter a city or country...">
                 <button id="search-btn">Search</button>
+                <span class="unit-span">°C</span>
+                <label class="switch">
+                    <input type="checkbox" id="unit-slider">
+                    <span class="slider round"></span>
+                </label>
+                <span class="unit-span">°F</span>
             </form>
         </div>
         <div id="subheader" class="grid">

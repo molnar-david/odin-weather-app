@@ -1,3 +1,15 @@
+let tempUnit;
+const unitSlider = document.getElementById('unit-slider');
+
+function getTempUnit() {
+    tempUnit = unitSlider.checked ? 'F' : 'C';
+
+    const unitSpans = Array.from(document.getElementsByClassName('unit-span'));
+    unitSpans.forEach((unitSpan) => {
+        tempUnit === unitSpan.textContent.slice(1) ? unitSpan.classList.add('active') : unitSpan.classList.remove('active');
+    });
+}
+
 function processWeatherData(weatherData) {
     const result = {
         query: weatherData.address,
@@ -25,7 +37,7 @@ function displayWeatherData(data) {
     const iconsFolder = 'icons/';
     currentIcon.src = iconsFolder + data.icon + '.svg';
     currentIcon.alt = data.icon;
-    document.getElementById('current-temp').textContent = data.temp;
+    document.getElementById('current-temp').textContent = data.temp + '°' + tempUnit;
     document.getElementById('current-conditions').textContent = data.conditions;
     document.getElementById('sunrise').textContent = 'Sunrise: ' + data.sunrise.slice(0, 5);
     document.getElementById('sunset').textContent = 'Sunset: ' + data.sunset.slice(0, 5);
@@ -50,7 +62,7 @@ function displayWeatherData(data) {
         forecastTimes[i].textContent = targetForecast.datetime.slice(0, 5);
         forecastIcons[i].src = iconsFolder + targetForecast.icon + '.svg';
         forecastIcons[i].alt = targetForecast.icon;
-        forecastTemps[i].textContent = targetForecast.temp;
+        forecastTemps[i].textContent = targetForecast.temp + '°' + tempUnit;
         targetHour += 3;
     }
 
@@ -80,15 +92,18 @@ function displayWeatherData(data) {
         longForecastTimes[i].textContent = targetForecast.datetime.slice(5);
         longForecastIcons[i].src = iconsFolder + targetForecast.icon + '.svg';
         longForecastIcons[i].alt = targetForecast.icon;
-        longForecastTempmaxes[i].textContent = targetForecast.tempmax;
-        longForecastTempmins[i].textContent = targetForecast.tempmin;
+        longForecastTempmaxes[i].textContent = targetForecast.tempmax + '°' + tempUnit;
+        longForecastTempmins[i].textContent = targetForecast.tempmin + '°' + tempUnit;
     }
 }
 
 async function getWeatherData(loc) {
+    if (!tempUnit) tempUnit = 'C';
     try {
-        const url = 'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/'
+        let url = 'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/'
                     + loc + '?IconSet=icons2&key=LC8JRPNYJGVVGR4JKMWPVHV5B';
+        if (tempUnit === 'C') url += '&unitGroup=metric';
+
         const response = await fetch(url, {mode: 'cors'});
         if (!response.ok) {
             console.log(response);
@@ -103,9 +118,15 @@ async function getWeatherData(loc) {
     }
 }
 
+getTempUnit();
 const loc = document.getElementById('search-box');
 const searchBtn = document.getElementById('search-btn');
 searchBtn.addEventListener('click', (event) => {
     event.preventDefault();
-    getWeatherData(loc.value).then((data) => console.log(data));
+    getWeatherData(loc.value);
+});
+
+unitSlider.addEventListener('click', (event) => {
+    getTempUnit();
+    getWeatherData(loc.value);
 });
