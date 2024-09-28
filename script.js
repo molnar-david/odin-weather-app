@@ -123,7 +123,7 @@ const loc = document.getElementById('search-box');
 const searchBtn = document.getElementById('search-btn');
 searchBtn.addEventListener('click', (event) => {
     event.preventDefault();
-    getWeatherData(loc.value);
+    getWeatherData(loc.value).then((data) => console.log(data));
 });
 
 unitSlider.addEventListener('click', (event) => {

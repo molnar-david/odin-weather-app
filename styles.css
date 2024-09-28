@@ -133,6 +133,12 @@ input {
     margin-bottom: 24px;
 }
 
+#weather-container {
+    grid-template-columns: subgrid;
+    grid-column: 1 / -1;
+    margin-right: 12px;
+}
+
 #current-container {
     align-items: center;
     border: 2px solid lightslategrey;
@@ -169,7 +175,7 @@ input {
     align-items: center;
     background-color: rgba(211, 211, 211, 0.4);
     padding: 4px 0;
-    height: 12rem;
+    height: 14rem;
     border-radius: 8px;
 }
 
@@ -183,11 +189,11 @@ input {
     grid-auto-rows: min-content;
     grid-column: 1 / -1;
     gap: 8px;
+    margin-top: 40px;
 }
 
 #long-forecast {
     grid-column: 1 / -1;
-    margin-top: 24px;
 }
 
 .long-forecast-tempmax {

@@ -26,149 +26,151 @@
             <div id="location">Location</div>
             <div id="description">Description</div>
         </div>
-        <div id="current-container" class="flex vertical">
-            <div>Currently</div>
-            <div id="current-time">Current Time</div>
-            <img id="current-icon" alt="">
-            <div id="current-temp">Current Temp</div>
-            <div id="current-conditions">Current Conditions</div>
-            <div id="sunrise">Sunrise: </div>
-            <div id="sunset">Sunset: </div>
-        </div>
-        <div id="forecast-container" class="grid">
-            <!-- "Today" div should be hidden if time > 21:00? -->
-            <div id="today">Today</div>
-            <div id="tomorrow">Tomorrow</div>
-            <div class="forecast-card flex vertical">
-                <div class="forecast-time">15:00</div>
-                <img src="" alt="" class="forecast-icon">
-                <div class="forecast-temp">Temp</div>
+        <div id="weather-container" class="grid">
+            <div id="current-container" class="flex vertical">
+                <div>Currently</div>
+                <div id="current-time">Current Time</div>
+                <img id="current-icon" alt="">
+                <div id="current-temp">Current Temp</div>
+                <div id="current-conditions">Current Conditions</div>
+                <div id="sunrise">Sunrise: </div>
+                <div id="sunset">Sunset: </div>
             </div>
-            <div class="forecast-card flex vertical">
-                <div class="forecast-time">18:00</div>
-                <img src="" alt="" class="forecast-icon">
-                <div class="forecast-temp">Temp</div>
+            <div id="forecast-container" class="grid">
+                <!-- "Today" div should be hidden if time > 21:00? -->
+                <div id="today">Today</div>
+                <div id="tomorrow">Tomorrow</div>
+                <div class="forecast-card flex vertical">
+                    <div class="forecast-time">15:00</div>
+                    <img src="" alt="" class="forecast-icon">
+                    <div class="forecast-temp">Temp</div>
+                </div>
+                <div class="forecast-card flex vertical">
+                    <div class="forecast-time">18:00</div>
+                    <img src="" alt="" class="forecast-icon">
+                    <div class="forecast-temp">Temp</div>
+                </div>
+                <div class="forecast-card flex vertical">
+                    <div class="forecast-time">21:00</div>
+                    <img src="" alt="" class="forecast-icon">
+                    <div class="forecast-temp">Temp</div>
+                </div>
+                <div class="forecast-card flex vertical">
+                    <div class="forecast-time">00:00</div>
+                    <img src="" alt="" class="forecast-icon">
+                    <div class="forecast-temp">Temp</div>
+                </div>
+                <div class="forecast-card flex vertical">
+                    <div class="forecast-time">03:00</div>
+                    <img src="" alt="" class="forecast-icon">
+                    <div class="forecast-temp">Temp</div>
+                </div>
+                <div class="forecast-card flex vertical">
+                    <div class="forecast-time">06:00</div>
+                    <img src="" alt="" class="forecast-icon">
+                    <div class="forecast-temp">Temp</div>
+                </div>
+                <div class="forecast-card flex vertical">
+                    <div class="forecast-time">09:00</div>
+                    <img src="" alt="" class="forecast-icon">
+                    <div class="forecast-temp">Temp</div>
+                </div>
+                <div class="forecast-card flex vertical">
+                    <div class="forecast-time">12:00</div>
+                    <img src="" alt="" class="forecast-icon">
+                    <div class="forecast-temp">Temp</div>
+                </div>
             </div>
-            <div class="forecast-card flex vertical">
-                <div class="forecast-time">21:00</div>
-                <img src="" alt="" class="forecast-icon">
-                <div class="forecast-temp">Temp</div>
-            </div>
-            <div class="forecast-card flex vertical">
-                <div class="forecast-time">00:00</div>
-                <img src="" alt="" class="forecast-icon">
-                <div class="forecast-temp">Temp</div>
-            </div>
-            <div class="forecast-card flex vertical">
-                <div class="forecast-time">03:00</div>
-                <img src="" alt="" class="forecast-icon">
-                <div class="forecast-temp">Temp</div>
-            </div>
-            <div class="forecast-card flex vertical">
-                <div class="forecast-time">06:00</div>
-                <img src="" alt="" class="forecast-icon">
-                <div class="forecast-temp">Temp</div>
-            </div>
-            <div class="forecast-card flex vertical">
-                <div class="forecast-time">09:00</div>
-                <img src="" alt="" class="forecast-icon">
-                <div class="forecast-temp">Temp</div>
-            </div>
-            <div class="forecast-card flex vertical">
-                <div class="forecast-time">12:00</div>
-                <img src="" alt="" class="forecast-icon">
-                <div class="forecast-temp">Temp</div>
-            </div>
-        </div>
-        <div id="alerts">Alerts:</div>
-        <div id="alerts-container">
+            <div id="alerts">Alerts:</div>
+            <div id="alerts-container">
             
-        </div>
-        <div id="long-forecast-container" class="grid">
-            <div id="long-forecast">14-day forecast</div>
-            <div class="forecast-card flex vertical">
-                <div class="long-forecast-date">03:00</div>
-                <img src="" alt="" class="long-forecast-icon">
-                <div class="long-forecast-tempmax">Tempmax</div>
-                <div class="long-forecast-tempmin">Tempmin</div>
             </div>
-            <div class="forecast-card flex vertical">
-                <div class="long-forecast-date">03:00</div>
-                <img src="" alt="" class="long-forecast-icon">
-                <div class="long-forecast-tempmax">Tempmax</div>
-                <div class="long-forecast-tempmin">Tempmin</div>
-            </div>
-            <div class="forecast-card flex vertical">
-                <div class="long-forecast-date">03:00</div>
-                <img src="" alt="" class="long-forecast-icon">
-                <div class="long-forecast-tempmax">Tempmax</div>
-                <div class="long-forecast-tempmin">Tempmin</div>
-            </div>
-            <div class="forecast-card flex vertical">
-                <div class="long-forecast-date">03:00</div>
-                <img src="" alt="" class="long-forecast-icon">
-                <div class="long-forecast-tempmax">Tempmax</div>
-                <div class="long-forecast-tempmin">Tempmin</div>
-            </div>
-            <div class="forecast-card flex vertical">
-                <div class="long-forecast-date">03:00</div>
-                <img src="" alt="" class="long-forecast-icon">
-                <div class="long-forecast-tempmax">Tempmax</div>
-                <div class="long-forecast-tempmin">Tempmin</div>
-            </div>
-            <div class="forecast-card flex vertical">
-                <div class="long-forecast-date">03:00</div>
-                <img src="" alt="" class="long-forecast-icon">
-                <div class="long-forecast-tempmax">Tempmax</div>
-                <div class="long-forecast-tempmin">Tempmin</div>
-            </div>
-            <div class="forecast-card flex vertical">
-                <div class="long-forecast-date">03:00</div>
-                <img src="" alt="" class="long-forecast-icon">
-                <div class="long-forecast-tempmax">Tempmax</div>
-                <div class="long-forecast-tempmin">Tempmin</div>
-            </div>
-            <div class="forecast-card flex vertical">
-                <div class="long-forecast-date">03:00</div>
-                <img src="" alt="" class="long-forecast-icon">
-                <div class="long-forecast-tempmax">Tempmax</div>
-                <div class="long-forecast-tempmin">Tempmin</div>
-            </div>
-            <div class="forecast-card flex vertical">
-                <div class="long-forecast-date">03:00</div>
-                <img src="" alt="" class="long-forecast-icon">
-                <div class="long-forecast-tempmax">Tempmax</div>
-                <div class="long-forecast-tempmin">Tempmin</div>
-            </div>
-            <div class="forecast-card flex vertical">
-                <div class="long-forecast-date">03:00</div>
-                <img src="" alt="" class="long-forecast-icon">
-                <div class="long-forecast-tempmax">Tempmax</div>
-                <div class="long-forecast-tempmin">Tempmin</div>
-            </div>
-            <div class="forecast-card flex vertical">
-                <div class="long-forecast-date">03:00</div>
-                <img src="" alt="" class="long-forecast-icon">
-                <div class="long-forecast-tempmax">Tempmax</div>
-                <div class="long-forecast-tempmin">Tempmin</div>
-            </div>
-            <div class="forecast-card flex vertical">
-                <div class="long-forecast-date">03:00</div>
-                <img src="" alt="" class="long-forecast-icon">
-                <div class="long-forecast-tempmax">Tempmax</div>
-                <div class="long-forecast-tempmin">Tempmin</div>
-            </div>
-            <div class="forecast-card flex vertical">
-                <div class="long-forecast-date">03:00</div>
-                <img src="" alt="" class="long-forecast-icon">
-                <div class="long-forecast-tempmax">Tempmax</div>
-                <div class="long-forecast-tempmin">Tempmin</div>
-            </div>
-            <div class="forecast-card flex vertical">
-                <div class="long-forecast-date">03:00</div>
-                <img src="" alt="" class="long-forecast-icon">
-                <div class="long-forecast-tempmax">Tempmax</div>
-                <div class="long-forecast-tempmin">Tempmin</div>
+            <div id="long-forecast-container" class="grid">
+                <div id="long-forecast">14-day forecast</div>
+                <div class="forecast-card flex vertical">
+                    <div class="long-forecast-date">03:00</div>
+                    <img src="" alt="" class="long-forecast-icon">
+                    <div class="long-forecast-tempmax">Tempmax</div>
+                    <div class="long-forecast-tempmin">Tempmin</div>
+                </div>
+                <div class="forecast-card flex vertical">
+                    <div class="long-forecast-date">03:00</div>
+                    <img src="" alt="" class="long-forecast-icon">
+                    <div class="long-forecast-tempmax">Tempmax</div>
+                    <div class="long-forecast-tempmin">Tempmin</div>
+                </div>
+                <div class="forecast-card flex vertical">
+                    <div class="long-forecast-date">03:00</div>
+                    <img src="" alt="" class="long-forecast-icon">
+                    <div class="long-forecast-tempmax">Tempmax</div>
+                    <div class="long-forecast-tempmin">Tempmin</div>
+                </div>
+                <div class="forecast-card flex vertical">
+                    <div class="long-forecast-date">03:00</div>
+                    <img src="" alt="" class="long-forecast-icon">
+                    <div class="long-forecast-tempmax">Tempmax</div>
+                    <div class="long-forecast-tempmin">Tempmin</div>
+                </div>
+                <div class="forecast-card flex vertical">
+                    <div class="long-forecast-date">03:00</div>
+                    <img src="" alt="" class="long-forecast-icon">
+                    <div class="long-forecast-tempmax">Tempmax</div>
+                    <div class="long-forecast-tempmin">Tempmin</div>
+                </div>
+                <div class="forecast-card flex vertical">
+                    <div class="long-forecast-date">03:00</div>
+                    <img src="" alt="" class="long-forecast-icon">
+                    <div class="long-forecast-tempmax">Tempmax</div>
+                    <div class="long-forecast-tempmin">Tempmin</div>
+                </div>
+                <div class="forecast-card flex vertical">
+                    <div class="long-forecast-date">03:00</div>
+                    <img src="" alt="" class="long-forecast-icon">
+                    <div class="long-forecast-tempmax">Tempmax</div>
+                    <div class="long-forecast-tempmin">Tempmin</div>
+                </div>
+                <div class="forecast-card flex vertical">
+                    <div class="long-forecast-date">03:00</div>
+                    <img src="" alt="" class="long-forecast-icon">
+                    <div class="long-forecast-tempmax">Tempmax</div>
+                    <div class="long-forecast-tempmin">Tempmin</div>
+                </div>
+                <div class="forecast-card flex vertical">
+                    <div class="long-forecast-date">03:00</div>
+                    <img src="" alt="" class="long-forecast-icon">
+                    <div class="long-forecast-tempmax">Tempmax</div>
+                    <div class="long-forecast-tempmin">Tempmin</div>
+                </div>
+                <div class="forecast-card flex vertical">
+                    <div class="long-forecast-date">03:00</div>
+                    <img src="" alt="" class="long-forecast-icon">
+                    <div class="long-forecast-tempmax">Tempmax</div>
+                    <div class="long-forecast-tempmin">Tempmin</div>
+                </div>
+                <div class="forecast-card flex vertical">
+                    <div class="long-forecast-date">03:00</div>
+                    <img src="" alt="" class="long-forecast-icon">
+                    <div class="long-forecast-tempmax">Tempmax</div>
+                    <div class="long-forecast-tempmin">Tempmin</div>
+                </div>
+                <div class="forecast-card flex vertical">
+                    <div class="long-forecast-date">03:00</div>
+                    <img src="" alt="" class="long-forecast-icon">
+                    <div class="long-forecast-tempmax">Tempmax</div>
+                    <div class="long-forecast-tempmin">Tempmin</div>
+                </div>
+                <div class="forecast-card flex vertical">
+                    <div class="long-forecast-date">03:00</div>
+                    <img src="" alt="" class="long-forecast-icon">
+                    <div class="long-forecast-tempmax">Tempmax</div>
+                    <div class="long-forecast-tempmin">Tempmin</div>
+                </div>
+                <div class="forecast-card flex vertical">
+                    <div class="long-forecast-date">03:00</div>
+                    <img src="" alt="" class="long-forecast-icon">
+                    <div class="long-forecast-tempmax">Tempmax</div>
+                    <div class="long-forecast-tempmin">Tempmin</div>
+                </div>
             </div>
         </div>
     </div>
