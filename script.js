@@ -38,8 +38,14 @@ function displayWeatherData(data) {
     // starting with the one directly after the current time
     let targetHour = (Math.floor(Number(data.time.slice(0, 2)) / 3) + 1) * 3;
     for (let i = 0; i < forecastTimes.length; i++) {
-        // Make sure we don't go above 23:00
-        targetHour %= 24;
+        // Make sure we don't go above 23:00 and style grid accordingly
+        if (targetHour >= 24) {
+            targetHour -= 24;
+            const today = document.getElementById('today');
+            i === 0 ? today.classList.add('hidden') : today.classList.remove('hidden');
+            const tomorrow = document.getElementById('tomorrow');
+            tomorrow.style.gridColumn = `${i + 1} / -1`
+        }
         const targetForecast = data.forecast[0].hours[targetHour];
         forecastTimes[i].textContent = targetForecast.datetime.slice(0, 5);
         icons[i].src = iconsFolder + targetForecast.icon + '.svg';
