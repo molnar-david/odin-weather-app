@@ -19,6 +19,8 @@
 h1 {
     font-family: "Roboto", sans-serif;
     font-weight: bold;
+    font-size: 2.2rem;
+    padding-right: 8px;
 }
 
 body {
@@ -66,7 +68,7 @@ button {
     background-color: inherit;
     border: 1px solid lightslategrey;
     border-radius: 8px;
-    height: 1.4rem;
+    font-size: 1.1rem;
 }
 
 input {
@@ -90,6 +92,11 @@ input {
 #current-container,
 #forecast-container {
     padding-top: 12px;
+}
+
+#subheader,
+#current-container {
+    font-size: 1.1rem;
 }
 
 #current-container,
