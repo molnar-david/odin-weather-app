@@ -32,10 +32,11 @@ body {
     grid-template-columns: 1fr minmax(auto, 7fr);
     grid-auto-rows: min-content;
     height: 100vh;
+    gap: 8px;
 }
 
 #site-container > * {
-    padding-left: 12px;
+    margin-left: 12px;
 }
 
 .grid {
@@ -51,8 +52,6 @@ body {
 }
 
 img {
-    width: 4rem;
-    height: 4rem;
     margin: 8px;
 }
 
@@ -61,6 +60,8 @@ img {
     grid-template-columns: subgrid;
     align-items: center;
     background-color: lightseagreen;
+    margin-left: 0;
+    padding-left: 12px;
 }
 
 input,
@@ -91,28 +92,42 @@ input {
 #subheader,
 #current-container,
 #forecast-container {
-    padding-top: 12px;
+    padding: 12px 0;
 }
 
 #subheader,
 #current-container,
 #today,
-#tomorrow {
+#tomorrow,
+#alerts,
+#long-forecast {
     font-size: 1.1rem;
 }
 
 #current-container,
 #forecast-container {
-    padding-bottom: 24px;
+    margin-bottom: 24px;
 }
 
 #current-container {
     align-items: center;
+    border: 2px solid lightslategrey;
+    border-radius: 8px;
 }
 
 #current-icon {
-    width: 5rem;
-    height: 5rem;
+    width: 6rem;
+    height: 6rem;
+}
+
+.forecast-icon {
+    width: 3.6rem;
+    height: 3.6rem;
+}
+
+.long-forecast-icon {
+    width: 2.4rem;
+    height: 2.4rem;
 }
 
 #forecast-container {
@@ -131,4 +146,30 @@ input {
     background-color: rgba(211, 211, 211, 0.4);
     padding: 4px 0;
     height: 12rem;
+    border-radius: 8px;
+}
+
+#alerts,
+#alerts-container > * {
+    color: yellow;
+}
+
+#long-forecast-container {
+    grid-template-columns: repeat(14, 1fr);
+    grid-auto-rows: min-content;
+    grid-column: 1 / -1;
+    gap: 8px;
+}
+
+#long-forecast {
+    grid-column: 1 / -1;
+    margin-top: 24px;
+}
+
+.long-forecast-tempmax {
+    color: red;
+}
+
+.long-forecast-tempmin {
+    color: blue;
 }

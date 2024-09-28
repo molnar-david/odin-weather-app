@@ -31,7 +31,7 @@ function displayWeatherData(data) {
     document.getElementById('sunset').textContent = 'Sunset: ' + data.sunset.slice(0, 5);
 
     const forecastTimes = Array.from(document.getElementsByClassName('forecast-time'));
-    const icons = Array.from(document.getElementsByClassName('forecast-icon'));
+    const forecastIcons = Array.from(document.getElementsByClassName('forecast-icon'));
     const forecastTemps = Array.from(document.getElementsByClassName('forecast-temp'));
 
     // Target times: 00:00 - 21:00 in 3-hour increments,
@@ -48,21 +48,41 @@ function displayWeatherData(data) {
         }
         const targetForecast = data.forecast[0].hours[targetHour];
         forecastTimes[i].textContent = targetForecast.datetime.slice(0, 5);
-        icons[i].src = iconsFolder + targetForecast.icon + '.svg';
-        icons[i].alt = targetForecast.icon;
+        forecastIcons[i].src = iconsFolder + targetForecast.icon + '.svg';
+        forecastIcons[i].alt = targetForecast.icon;
         forecastTemps[i].textContent = targetForecast.temp;
         targetHour += 3;
     }
 
-    const alerts = document.getElementById('alerts-container');
-    alerts.textContent = '';
-    data.alerts.forEach((alert) => {
-        const alertDiv = document.createElement('div');
-        // Capitalize headline
-        alertDiv.textContent += alert.headline[0].toUpperCase() + alert.headline.slice(1) + ': ';
-        alertDiv.textContent += alert.description;
-        alerts.appendChild(alertDiv);
-    });
+    const alerts = document.getElementById('alerts');
+    const alertsContainer = document.getElementById('alerts-container');
+    alertsContainer.textContent = '';
+    if (data.alerts.length) {
+        alerts.classList.remove('hidden');
+        data.alerts.forEach((alert) => {
+            const alertDiv = document.createElement('div');
+            // Capitalize headline
+            alertDiv.textContent += alert.headline[0].toUpperCase() + alert.headline.slice(1) + ': ';
+            alertDiv.textContent += alert.description;
+            alertsContainer.appendChild(alertDiv);
+        });
+    } else {
+        alerts.classList.add('hidden');
+    }
+
+    const longForecastTimes = Array.from(document.getElementsByClassName('long-forecast-date'));
+    const longForecastIcons = Array.from(document.getElementsByClassName('long-forecast-icon'));
+    const longForecastTempmaxes = Array.from(document.getElementsByClassName('long-forecast-tempmax'));
+    const longForecastTempmins = Array.from(document.getElementsByClassName('long-forecast-tempmin'));
+    for (let i = 0; i < longForecastTimes.length; i++) {
+        // 0 = today in data
+        const targetForecast = data.forecast[i+1];
+        longForecastTimes[i].textContent = targetForecast.datetime.slice(5);
+        longForecastIcons[i].src = iconsFolder + targetForecast.icon + '.svg';
+        longForecastIcons[i].alt = targetForecast.icon;
+        longForecastTempmaxes[i].textContent = targetForecast.tempmax;
+        longForecastTempmins[i].textContent = targetForecast.tempmin;
+    }
 }
 
 async function getWeatherData(loc) {
