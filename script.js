@@ -21,14 +21,14 @@ function displayWeatherData(data) {
     document.getElementById('location').textContent = data.location;
     document.getElementById('description').textContent = data.description;
     document.getElementById('current-time').textContent = data.time.slice(0, 5);
-    document.getElementById('current-conditions').textContent = data.conditions;
     const currentIcon = document.getElementById('current-icon');
     const iconsFolder = 'icons/';
     currentIcon.src = iconsFolder + data.icon + '.svg';
     currentIcon.alt = data.icon;
     document.getElementById('current-temp').textContent = data.temp;
-    document.getElementById('sunrise').textContent = data.sunrise.slice(0, 5);
-    document.getElementById('sunset').textContent = data.sunset.slice(0, 5);
+    document.getElementById('current-conditions').textContent = data.conditions;
+    document.getElementById('sunrise').textContent = 'Sunrise: ' + data.sunrise.slice(0, 5);
+    document.getElementById('sunset').textContent = 'Sunset: ' + data.sunset.slice(0, 5);
 
     const forecastTimes = Array.from(document.getElementsByClassName('forecast-time'));
     const icons = Array.from(document.getElementsByClassName('forecast-icon'));
