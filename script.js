@@ -108,7 +108,7 @@ async function getWeatherData(loc) {
 
         const response = await fetch(url, {mode: 'cors'});
         if (!response.ok) {
-            throw(response.status);
+            throw response.status;
         }
         const weatherData = await response.json();
 
@@ -134,17 +134,21 @@ async function getWeatherData(loc) {
         err = 'Error ' + err;
         alert(err);
     }
+    return weatherData;
 }
 
 getTempUnit();
 const loc = document.getElementById('search-box');
 const searchBtn = document.getElementById('search-btn');
-searchBtn.addEventListener('click', (event) => {
+let weatherData;
+searchBtn.addEventListener('click', async (event) => {
     event.preventDefault();
-    getWeatherData(loc.value);
+    weatherData = await getWeatherData(loc.value);
 });
 
-unitSlider.addEventListener('click', (event) => {
+
+unitSlider.addEventListener('click', async (event) => {
     getTempUnit();
-    getWeatherData(loc.value);
+    if (weatherData) weatherData = await getWeatherData(weatherData.query);
+    console.log(weatherData);
 });
