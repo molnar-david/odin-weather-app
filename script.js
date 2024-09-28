@@ -22,12 +22,16 @@ function displayWeatherData(data) {
     document.getElementById('description').textContent = data.description;
     document.getElementById('current-time').textContent = data.time.slice(0, 5);
     document.getElementById('current-conditions').textContent = data.conditions;
+    const currentIcon = document.getElementById('current-icon');
+    const iconsFolder = 'icons/';
+    currentIcon.src = iconsFolder + data.icon + '.svg';
+    currentIcon.alt = data.icon;
     document.getElementById('current-temp').textContent = data.temp;
     document.getElementById('sunrise').textContent = data.sunrise.slice(0, 5);
     document.getElementById('sunset').textContent = data.sunset.slice(0, 5);
 
     const forecastTimes = Array.from(document.getElementsByClassName('forecast-time'));
-    // Don't forget icons...
+    const icons = Array.from(document.getElementsByClassName('forecast-icon'));
     const forecastTemps = Array.from(document.getElementsByClassName('forecast-temp'));
 
     // Target times: 00:00 - 21:00 in 3-hour increments,
@@ -38,6 +42,8 @@ function displayWeatherData(data) {
         targetHour %= 24;
         const targetForecast = data.forecast[0].hours[targetHour];
         forecastTimes[i].textContent = targetForecast.datetime.slice(0, 5);
+        icons[i].src = iconsFolder + targetForecast.icon + '.svg';
+        icons[i].alt = targetForecast.icon;
         forecastTemps[i].textContent = targetForecast.temp;
         targetHour += 3;
     }
@@ -56,7 +62,7 @@ function displayWeatherData(data) {
 async function getWeatherData(loc) {
     try {
         const url = 'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/'
-                    + loc + '?key=LC8JRPNYJGVVGR4JKMWPVHV5B';
+                    + loc + '?IconSet=icons2&key=LC8JRPNYJGVVGR4JKMWPVHV5B';
         const response = await fetch(url, {mode: 'cors'});
         if (!response.ok) {
             console.log(response);
