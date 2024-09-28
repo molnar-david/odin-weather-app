@@ -116,7 +116,7 @@ async function getWeatherData(loc) {
         displayWeatherData(processWeatherData(weatherData));
         return processWeatherData(weatherData);
     } catch (err) {
-        console.log(err);
+        alert(err);
     }
 }
 
@@ -125,7 +125,7 @@ const loc = document.getElementById('search-box');
 const searchBtn = document.getElementById('search-btn');
 searchBtn.addEventListener('click', (event) => {
     event.preventDefault();
-    getWeatherData(loc.value).then((data) => console.log(data));
+    getWeatherData(loc.value);
 });
 
 unitSlider.addEventListener('click', (event) => {
