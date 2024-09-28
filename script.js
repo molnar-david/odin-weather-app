@@ -108,14 +108,30 @@ async function getWeatherData(loc) {
 
         const response = await fetch(url, {mode: 'cors'});
         if (!response.ok) {
-            console.log(response);
-            throw('Error ' + response.status);
+            throw(response.status);
         }
         const weatherData = await response.json();
 
         displayWeatherData(processWeatherData(weatherData));
         return processWeatherData(weatherData);
     } catch (err) {
+        switch (err) {
+            case 400:
+                err += ': Invalid location';
+                break;
+            case 401:
+                err += ': Unathorized';
+                break;
+            case 429:
+                err += ': Too many requests';
+                break;
+            case 500:
+                err += ': Internal server error';
+                break;
+            default:
+                err += ': Unknown error'
+        }
+        err = 'Error ' + err;
         alert(err);
     }
 }
