@@ -95,7 +95,9 @@ input {
 }
 
 #subheader,
-#current-container {
+#current-container,
+#today,
+#tomorrow {
     font-size: 1.1rem;
 }
 
