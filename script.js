@@ -30,6 +30,8 @@ function processWeatherData(weatherData) {
 }
 
 function displayWeatherData(data) {
+    const weatherContainer = document.getElementById('weather-container');
+    weatherContainer.classList.remove('hidden');
     document.getElementById('location').textContent = data.location;
     document.getElementById('description').textContent = data.description;
     document.getElementById('current-time').textContent = data.time.slice(0, 5);
