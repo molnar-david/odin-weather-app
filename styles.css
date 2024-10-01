@@ -21,6 +21,33 @@ body {
     background-color: skyblue;
 }
 
+/* Animation taken from www.dev.to/vaishnavs */
+#throbber {
+    position: fixed;
+    background-color: skyblue;
+    top: calc(50% - 5rem);
+    left: calc(50% - 5rem);
+    width: 10rem;
+    height: 10rem;
+    border: 5px solid #ccc;
+    border-top: 6px solid lightslategrey;
+    border-radius: 100%;
+    animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.loading {
+    opacity: 0.4;
+}
+
 h1 {
     font-family: "Roboto", sans-serif;
     font-weight: bold;
@@ -50,8 +77,9 @@ form {
 #site-container {
     grid-template-columns: 1fr minmax(auto, 7fr);
     grid-auto-rows: min-content;
-    height: 100vh;
     gap: 8px;
+    height: 100vh;
+    background-color: skyblue;
 }
 
 #site-container > * {
@@ -258,4 +286,4 @@ input:checked + .slider:before {
   
 .slider.round:before {
     border-radius: 50%;
-} 
+}

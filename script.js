@@ -100,6 +100,7 @@ function displayWeatherData(data) {
 }
 
 async function getWeatherData(loc) {
+    // Loading animation
     if (!tempUnit) tempUnit = 'C';
     try {
         let url = 'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/'
@@ -137,18 +138,32 @@ async function getWeatherData(loc) {
     return weatherData;
 }
 
+function startLoadingAnimation() {
+    const loading = document.getElementById('throbber');
+    loading.classList.remove('hidden');
+    document.getElementById('site-container').classList.add('loading');
+}
+
+function stopLoadingAnimation() {
+    const loading = document.getElementById('throbber');
+    loading.classList.add('hidden');
+    document.getElementById('site-container').classList.remove('loading');
+}
+
 getTempUnit();
 const loc = document.getElementById('search-box');
 const searchBtn = document.getElementById('search-btn');
 let weatherData;
 searchBtn.addEventListener('click', async (event) => {
+    startLoadingAnimation()
     event.preventDefault();
     weatherData = await getWeatherData(loc.value);
+    stopLoadingAnimation()
 });
 
-
 unitSlider.addEventListener('click', async (event) => {
+    startLoadingAnimation()
     getTempUnit();
     if (weatherData) weatherData = await getWeatherData(weatherData.query);
-    console.log(weatherData);
+    stopLoadingAnimation()
 });
